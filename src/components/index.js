@@ -1,0 +1,7 @@
+export * from "./Cabecera"
+export * from "./Carousel"
+export * from "./CarouselMinNosotros"
+export * from "./Footer"
+export * from "./Navbar"
+export * from "./PresentacionNosotros"
+export * from "./ProductosMasVendidos"
