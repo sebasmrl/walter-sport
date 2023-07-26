@@ -4,10 +4,9 @@ import { Card } from "./Card"
 
 export const CardsContainer = () => {
 
-    //simulacion de data traida mediante fetch
-
+    //simulacion de data traida mediante fetch de algun lado  (no sabe cuantos datos vienen
+    //para renderizar de forma dinamica, pero esta info ya la tengo aqui en mi pc
     const productos = ["producto1","producto2","producto3","producto4"]; 
-
 
     return (
         <section>
