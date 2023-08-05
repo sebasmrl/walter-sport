@@ -1,0 +1,22 @@
+{
+    "carouselDeInicio": [
+        "grupo-atletas-multietnico",
+        "personas-jugando-al-voleibol",
+        "Articulos"
+    ],
+    "carouselFutbol": [
+        "uno",
+        "arquero",
+        "uno"
+    ],
+    "carouselNatacion": [
+        "nadador-masculino-nadando-trazo-mariposa",
+        "Articulos",
+        "gripo-atletas-multietnico"
+    ],
+    "carouselTennisDeMesa": [
+        "tenis-mesa-o-ping-pong",
+        "personas-jugando-al-voleibol",
+        "Articulos"
+    ]
+}

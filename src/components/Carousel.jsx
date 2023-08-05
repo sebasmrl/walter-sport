@@ -1,5 +1,10 @@
+import { PropTypes } from 'prop-types';
 
-export const Carousel = () => {
+
+    //
+export const Carousel = ({ img1='', img2='', img3='' }) => {
+
+  console.log(location.origin)
   return (
     <>
     <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="true">
@@ -10,13 +15,13 @@ export const Carousel = () => {
               </div>
               <div className="carousel-inner">
                 <div className="carousel-item active">
-                  <img src="src/assets/img/nadador-masculino-nadando-trazo-mariposa.jpg" className="d-block w-100" alt="imagen"  />
+                  <img src= { `${location.origin}/src/assets/img/${img1}.jpg` } className="d-block w-100" alt="imagen"  />
                 </div>
                 <div className="carousel-item">
-                  <img src="src/assets/img/grupo-atletas-multietnico.jpg" className="d-block w-100" alt="imagen" />
+                  <img src={`${location.origin}/src/assets/img/${img2}.jpg`} className="d-block w-100" alt="imagen" />
                 </div>
                 <div className="carousel-item">
-                  <img src="src/assets/img/arquero.jpg" className="d-block w-100" alt="imagen" />
+                  <img src={ `${location.origin}/src/assets/img/${img3}.jpg` } className="d-block w-100" alt="imagen" />
                 </div>
               </div>
               <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -31,4 +36,11 @@ export const Carousel = () => {
          
     </>
   )
+}
+
+
+Carousel.propTypes = {
+  img1: PropTypes.string.isRequired,
+  img2: PropTypes.string.isRequired,
+  img3: PropTypes.string.isRequired,
 }

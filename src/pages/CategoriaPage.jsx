@@ -1,17 +1,30 @@
-import { NavLink, Outlet } from "react-router-dom"
+import { Outlet, useParams } from "react-router-dom"
+import { Cabecera, Carousel, Navbar } from "../components"
 
 export const CategoriaPage = () => {
+
+  const { nomCategoria } = useParams();
+
+
+  
+
+
   return (
     <>
-        <h1>Categoria</h1>
-        <NavLink to="futbol">Futbol</NavLink>
-        <br />
-        <NavLink to="natacion">Natacion</NavLink>
-        <br />
-        <NavLink to="tenis-de-mesa">Tenis de mesa</NavLink>
+        <Cabecera />
+        <Navbar />
+
+        <h2>Productos de { nomCategoria }</h2>
+
+
+      <Carousel 
+          img1="personas-jugando-al-voleibol"
+          img2=""
+          img3=""
+        />
+        
 
         <hr />
-        
         <Outlet />
     </>
   )

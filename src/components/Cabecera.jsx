@@ -5,7 +5,7 @@ export const Cabecera = () => {
      <nav className="navbar navbar-expand-lg bg-light">
         <div className="container">
           <a className="navbar-brand" href="">
-            <img src="src/assets/img/Logo.jpg" alt="logo" width="60px" height="60px" />
+            <img src="../src/assets/img/Logo.jpg" alt="logo" width="60px" height="60px" />
             Nombre Empresa</a>               
             <form className="d-flex margen" role="search">
               <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
