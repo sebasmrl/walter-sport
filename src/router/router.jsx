@@ -1,9 +1,14 @@
 import { Home } from "../Home.jsx";
-import { createBrowserRouter } from "react-router-dom";
-import { CategoriaPage } from "../pages/CategoriaPage.jsx";
-import { ListaProductos } from "../components/ListaProductos.jsx";
-import { ContactoPage } from "../pages/ContactoPage.jsx";
+import { Outlet, createBrowserRouter } from "react-router-dom";
 
+import { 
+    CategoriaPage, 
+    ContactoPage, 
+    LoginPage, 
+    RegisterPage
+} from '../pages'
+
+import { ListaProductos } from '../components'
 
 export  const router = createBrowserRouter([
     {
@@ -26,5 +31,21 @@ export  const router = createBrowserRouter([
     {
         path:'contacto',
         element: <ContactoPage />,
+    },
+    {
+        path: 'auth',
+        element: <Outlet /> ,
+        children: [
+            {
+                path: 'login',
+                element: <LoginPage />
+            },
+            {
+                path: 'register',
+                element: <RegisterPage />
+            }
+        ]
+            
+        
     }
 ]);

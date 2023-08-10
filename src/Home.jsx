@@ -7,7 +7,7 @@ import { ProductosMasVendidos } from "./components/ProductosMasVendidos"
 import { Footer } from "./components/Footer" */
 
 //forma abreviada de importar
-import { useEffect, useState } from 'react';
+//import { useEffect, useState } from 'react';
 import {
   Cabecera, Carousel,
   CarouselMinNosotros,
@@ -36,7 +36,7 @@ export const Home = () => {
   
   console.log(imgs) */
 
-   const {data, isLoading, isError}  = useFetch('/src/assets/db/assets.json')
+   const {data, isLoading}  = useFetch('/src/assets/db/assets.json')
    
   
 

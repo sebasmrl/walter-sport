@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 export const Cabecera = () => {
   return (
@@ -15,8 +16,9 @@ export const Cabecera = () => {
         <div className="container ms-5" >
          <div></div>
           <div className="icono d-flex" >
-            <a href="https://www.udemy.com/"><i className="bi bi-cart4  margenic" ></i></a>            
-            <button type="submit" className="btn btn-outline-primary  me-2">Iniciar Seccion</button>
+            <a href="https://www.udemy.com/"><i className="bi bi-cart4  margenic" ></i></a>
+            <Link  className="btn btn-outline-primary  me-2" to={ `${location.origin}/auth/login` }>Iniciar Sesion</Link>            
+            {/* <button type="submit" className="btn btn-outline-primary  me-2">Iniciar Seccion</button> */}
           </div>       
         </div>
       </nav>  
