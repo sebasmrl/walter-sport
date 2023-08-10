@@ -19,7 +19,7 @@ export const Navbar = () => {
               </li>
               <li className="nav-item dropdown  mx-3">
                 <a className="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias</a>
-                <ul className="dropdown-menu">
+                <ul className="dropdown-menu"> 
                   <li><Link className="dropdown-item" to="/categoria/futbol">Futbol</Link></li>
                   <li><Link className="dropdown-item" to="/categoria/natacion">Natacion</Link></li>
                   <li><Link className="dropdown-item" to="/categoria/tennis-de-mesa">Tennis de Mesa</Link></li>

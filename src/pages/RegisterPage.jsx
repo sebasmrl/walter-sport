@@ -1,5 +1,13 @@
+import { useRef } from "react";
 
 export const RegisterPage = () => {
+
+    const formRef =  useRef();
+
+    const handleOnSubmit = (e) => {
+        console.log(e)
+    }
+
   return (
     <>
         <div className="container py-4 ">
@@ -16,7 +24,7 @@ export const RegisterPage = () => {
 
                     
 
-                    <form id="formulario" action method className="p-2">
+                    <form id="formulario" method="post"  className="p-2" ref={ formRef}>
                         <div className="row mb-3">
                             <div className="col-10 col-lg-6">
                                 <label htmlFor="nombre" className="col-form-label ">Nombre</label>
@@ -66,7 +74,11 @@ export const RegisterPage = () => {
                         <p className="text-danger small   pt-0 mt-0 ">Todos los
                             campos son obligatorios</p>
 
-                        <button type="submit" className="btn btn-primary mb-2 ">Registrarme</button>
+                        <button 
+                            type="submit" 
+                            className="btn btn-primary mb-2 "
+                            onSubmit={ handleOnSubmit }
+                        >Registrarme</button>
                     </form>
                 </div>
             </div>

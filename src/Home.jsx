@@ -20,6 +20,7 @@ import { useFetch } from './hooks/useFetch';
 export const Home = () => {
 
 /*   const [ imgs, setImgs] = useState({});
+
   const [imgsIsLoading, setImgsIsLoading] = useState(true);
 
   useEffect( () => {
