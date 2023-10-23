@@ -1,15 +1,26 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 export const RegisterPage = () => {
 
     const formRef =  useRef();
 
-    const handleOnSubmit = (e) => {
-        console.log(e)
+    const handleSubmit = (e) => {
+        e.preventDefault();
+       /*  console.log(e)
+        console.log(e.target.firstname.value)
+        console.log(e.target.lastname.value)
+        console.log(e.target.email.value)
+        console.log(e.target.password.value)
+        console.log(e.target.check.checked)
+         */
+        console.log(formRef.current.firstname.value)
+        
     }
 
   return (
     <>
+        <Link className="btn btn-primary" to="/">Ir a home</Link>
         <div className="container py-4 ">
             <div className="row justify-content-center ">
                 <div className="col-10 col-md-8 col-lg-6  mt-5  border border-primary rounded-3    ">
@@ -24,12 +35,12 @@ export const RegisterPage = () => {
 
                     
 
-                    <form id="formulario" method="post"  className="p-2" ref={ formRef}>
+                    <form id="formulario" method="post"  className="p-2"  onSubmit={ handleSubmit } ref={ formRef}>
                         <div className="row mb-3">
                             <div className="col-10 col-lg-6">
                                 <label htmlFor="nombre" className="col-form-label ">Nombre</label>
                                 <div className="col-12">
-                                    <input type="text" name="nombre" defaultValue=""
+                                    <input type="text" name="firstname" defaultValue=""
                                         id="nombre" className="form-control"
                                         required />
                                 </div>
@@ -37,7 +48,7 @@ export const RegisterPage = () => {
                             <div className="col-10 col-lg-6">
                                 <label htmlFor="apellido" className="col-form-label  ">Apellido</label>
                                 <div className="col-12 ">
-                                    <input type="text" name="nombre" defaultValue=""
+                                    <input type="text" name="lastname" defaultValue=""
                                         id="apellido" className="form-control"
                                         required />
                                 </div>
@@ -54,7 +65,7 @@ export const RegisterPage = () => {
                             <div className="col-10 col-lg-6">
                                 <label htmlFor="contrasena" className="col-form-label">Contraseña</label>
                                 <div className="col-12">
-                                    <input type="password" name="nombre" defaultValue=""
+                                    <input type="password" name="password" defaultValue=""
                                         id="contrasena" className="form-control"
                                         required />
                                 </div>
@@ -62,7 +73,7 @@ export const RegisterPage = () => {
                         </div>
                         <div className="mb-3 form-check">
                             <input type="checkbox" className="form-check-input"
-                                id="exampleCheck1" />
+                                id="exampleCheck1" name="check"/>
                             <label className="form-check-label" htmlFor="exampleCheck1"><p
                                     className="mb-0">Declaro que he leido y autorizo
                                     el uso de mis datos personales de acuedo a
@@ -77,7 +88,6 @@ export const RegisterPage = () => {
                         <button 
                             type="submit" 
                             className="btn btn-primary mb-2 "
-                            onSubmit={ handleOnSubmit }
                         >Registrarme</button>
                     </form>
                 </div>
