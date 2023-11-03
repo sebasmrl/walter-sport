@@ -1,11 +1,33 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import {  useRef, useContext } from "react";
 import conn from "../connection/conn";
-import { useRef } from "react";
+//import { useQuery } from "@tanstack/react-query";
+import { UserContext } from "../context/userContext";
 
 export const LoginPage = () => {
 
-  const email =  useRef();
-  const password =  useRef();
+  const navigate = useNavigate();
+
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  //const [email, setEmail] =  useState("");
+  //const [password, setPassword] = useState("");
+
+  /* const loginQuery = useQuery({
+    queryKey:  ['login'],
+    queryFn:  async()=> {
+      const rs = await conn.post('/auth/login', { email, password}, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+      });
+      localStorage.setItem('waltersport-token', rs.data.data?.token)
+      return rs;
+    }
+  })    */
+
+  const {setUser} = useContext(UserContext);
+  
 
   return (
     <>
@@ -25,22 +47,32 @@ export const LoginPage = () => {
                   e.stopPropagation();
 
                   const data = {
-                    email:  email.current.value,
-                    password:  password.current.value
+                    email:  emailRef.current.value,
+                    password:  passwordRef.current.value
                   };
                 
+                  try {
+                    const rs = await conn.post('/auth/login', data, {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    localStorage.setItem('waltersport-token', rs.data.data?.token)
+                     console.log(rs.data.data)
+                     
+                    const user = await conn.post('/users',{}, {
+                      headers: {
+                        'waltersport-token': rs.data.data?.token
+                      }
+                    });
+                    setUser(user)
+                    navigate("/", { state: { key: "value" } });
 
-                  try{
-                  const rs =  await conn.post('/auth/login', data, {
-                    headers: {
-                      'Content-Type': 'application/json'
-                    }
-                  });
 
-                  localStorage.setItem('waltersport-token', rs.data.data?.token)
-                  console.log(rs.data.data?.token)
-                }catch(e){
-                  window.alert('Error '+ e.response.data.msg);
+
+                } catch (e) {
+                    window.alert( e.response.data);
+                    return {}
                 }
 
 
@@ -50,13 +82,13 @@ export const LoginPage = () => {
                   <label htmlFor="exampleInputEmail1" className="form-label">Correo Electronico</label>
                   <input type="email" className="form-control"
                     id="exampleInputEmail1"
-                    aria-describedby="emailHelp" ref={email}/>
+                    aria-describedby="emailHelp" ref={ emailRef } /* onChange={ (e)=> setEmail(e.target.value)} *//>
 
                     <div className="mb-3 mt-3">
                       <label htmlFor="exampleInputPassword1"
                         className="form-label">Contraseña</label>
                       <input type="password" className="form-control"
-                        id="exampleInputPassword1" ref={password} />
+                        id="exampleInputPassword1" ref={ passwordRef }  /* onChange={ (e)=> setPassword(e.target.value)} *//>
                     </div>
                     <div className="mb-3">
                       <p>Aún no tiens una cuenta, registrate <Link to={ `${location.origin}/auth/register` }>aquí</Link></p>

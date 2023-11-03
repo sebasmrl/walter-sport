@@ -1,24 +1,44 @@
-//import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { Card } from "./Card"
 import '../App.css'
+import { useQuery } from "@tanstack/react-query";
+import conn from "../connection/conn";
+import { Loader } from "./Loader";
 
 export const ListaProductos = ( ) => {
 
-    //const { nomCategoria } = useParams();
+    const { nomCategoria } = useParams();
 
     //fetch http://mibackend.com/categoria/{nomCategoria} (get) [arreglo de productos] 10
    // const productos = fetch(http://mibackend.com/categoria/{nomCategoria}); 
       
+  const productosQuery = useQuery({ 
+    queryKey: ['productos', nomCategoria],
+    queryFn: async() => {
+      const rs = await conn.get(`products/${nomCategoria}`);
+      return rs.data;
+    }
+  })
 
+
+  if(productosQuery.isLoading) return <Loader />
+  if(productosQuery.isError) return <pre>{ productosQuery.error.response.data.msg }</pre>
+
+  if(productosQuery.isError) console.log(productosQuery.error)
   return (
-    <>
-        <ol className="container lista-productos">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+    <>  
+    <ol className="container lista-productos">
+        { 
+        
+        productosQuery?.data?.data?.products?.map( producto =>{
+
+          return <Card key={producto.uid} dataProduct={ producto} />
+        })
+        
+        }
+        
+           
+           
 
         </ol >
     </>

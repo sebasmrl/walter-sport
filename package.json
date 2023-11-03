@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^4.32.6",
+    "@tanstack/react-query-devtools": "^5.4.3",
     "axios": "^1.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.0.5",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@vitejs/plugin-react": "^4.0.1",

@@ -17,7 +17,7 @@ export const Footer = () => {
                         <h4 className="text-warning text-start" >Categorias</h4>
                         <a href="#" className="text-decoration-none  text-white text-start"><p>Tenis de mesa</p></a>
                         <a href="#" className="text-decoration-none  text-white text-start"><p>Futbol</p></a>
-                        <a href="#" className="text-decoration-none  text-white text-start"><p>Patinaje</p></a>
+                        <a href="#" className="text-decoration-none  text-white text-start"><p>Natacion</p></a>
                     </div>
                     <div className="col-3">
                         <h4 className="text-warning text-start">Mas Informacion</h4>

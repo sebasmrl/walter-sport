@@ -5,7 +5,7 @@ export const RegisterPage = () => {
 
     const formRef =  useRef();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
        /*  console.log(e)
         console.log(e.target.firstname.value)
@@ -15,8 +15,15 @@ export const RegisterPage = () => {
         console.log(e.target.check.checked)
          */
         console.log(formRef.current.firstname.value)
-        
-    }
+
+        const data = {
+            name: ''+formRef.current.firstname.value+formRef.current.lastname.value,
+            email:formRef.current.email.value,
+            password: formRef.current.password.value
+        }
+        console.log(data)
+
+    }  
 
   return (
     <>
@@ -96,3 +103,4 @@ export const RegisterPage = () => {
     </>
   )
 }
+

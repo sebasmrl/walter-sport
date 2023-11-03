@@ -1,0 +1,46 @@
+.loader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 100px; 
+    height: 100px;
+    /*border: 1px solid black;*/
+}
+
+.loader span{
+   /* border:1px solid black;*/
+    margin: 0;
+    width:40px;
+    height:40px;
+    position: absolute;
+    border-radius: 50%;
+    animation: spin 2s ease infinite;
+    transition: all 1s
+        cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+
+.loader :first-child{
+    background-color: #216AD6;
+   animation-delay: -1.5s;
+}
+.loader :nth-child(2){
+    background-color: #FFD960;      
+   animation-delay: -1s;
+}
+.loader :nth-child(3){
+    background-color: #D7417D;
+    animation-delay: -0.5s;
+}
+
+.loader :last-child{
+    background-color: #1F95FD;
+    
+}
+
+@keyframes spin {
+    0%{transform: translate(-300%) scale(0)}
+    50%{transform: translate(0) scale(1.5)}
+    100%{transform: translate(300%) scale(0)}
+    
+}
