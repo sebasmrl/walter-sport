@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom"
 import { Navbar } from "../components"
 
 export const ContactoPage = () => {
@@ -14,8 +15,8 @@ export const ContactoPage = () => {
     <div className="col-lg-6 mx-auto">
       <p className="lead mb-4">Somos la tienda deportiva por excelencia de la ciudad de Cali, hacemos envios a todo el país, animate y disfruta de nuestros productos que perduraran por generaciones</p>
       <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="button" className="btn btn-primary btn-lg px-4 gap-3">Enviar Mensaje</button>
-        <button type="button" className="btn btn-outline-secondary btn-lg px-4">Volver a Inicio</button>
+        <Link type="button" className="btn btn-primary btn-lg px-4 gap-3"  to="https://chat.whatsapp.com/KmGiTQdOTGxGjFsqz135ve" >Enviar Mensaje</Link>
+        <Link type="button" className="btn btn-outline-secondary btn-lg px-4" to="/">Volver a Inicio</Link>
       </div>
     </div>
   </div>
