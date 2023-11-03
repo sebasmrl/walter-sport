@@ -13,7 +13,7 @@ export const CardsContainer = () => {
     const productosQuery = useQuery({ 
         queryKey: ['productos'],
         queryFn: async() => {
-          const rs = await conn.get(`products/${'futbol'}?from=0&to=3`);
+          const rs = await conn.get(`products/${'futbol'}?from=0&to=4`);
           return rs.data;
         }
       })
