@@ -22,7 +22,7 @@ export const ListaProductos = ( ) => {
 
 
   if(productosQuery.isLoading) return <Loader />
-  if(productosQuery.isError) return <pre>{ productosQuery.error.response.data.msg }</pre>
+  if(productosQuery.isError) return<pre>{ productosQuery?.error?.response?.data?.msg }</pre> 
 
   if(productosQuery.isError) console.log(productosQuery.error)
   return (
@@ -30,10 +30,13 @@ export const ListaProductos = ( ) => {
     <ol className="container lista-productos">
         { 
         
-        productosQuery?.data?.data?.products?.map( producto =>{
+        (Object.keys(productosQuery?.data?.data?.products).length > 0)
 
-          return <Card key={producto.uid} dataProduct={ producto} />
+        ? productosQuery?.data?.data?.products?.map( producto =>{
+
+          return <Card key={producto?.uid} dataProduct={ producto} />
         })
+        : <h4> No se encontraron productos registrados para esta categoria </h4>
         
         }
         
