@@ -71,7 +71,7 @@ export const LoginPage = () => {
 
 
                 } catch (e) {
-                    window.alert( e.response.data);
+                    window.alert( JSON.stringify( e.response?.data?.msg))
                     return {}
                 }
 
