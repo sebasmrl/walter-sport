@@ -19,7 +19,8 @@ export const LoginPage = () => {
             <hr className="bg-info  mt-0" />
 
             <div className="container">
-              <form  onSubmit={   async(e)=>{
+              <form  onSubmit={   
+                async(e)=>{
                   e.preventDefault();
                   e.stopPropagation();
 
@@ -28,6 +29,7 @@ export const LoginPage = () => {
                     password:  password.current.value
                   };
                 
+
                   try{
                   const rs =  await conn.post('/auth/login', data, {
                     headers: {
@@ -38,8 +40,10 @@ export const LoginPage = () => {
                   localStorage.setItem('waltersport-token', rs.data.data?.token)
                   console.log(rs.data.data?.token)
                 }catch(e){
-                  window.alert('Error'+ e.response.data.msg);
+                  window.alert('Error '+ e.response.data.msg);
                 }
+
+
               }
               }>
                 <div className="mb-3">
