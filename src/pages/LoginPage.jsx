@@ -50,6 +50,8 @@ export const LoginPage = () => {
                     email:  emailRef.current.value,
                     password:  passwordRef.current.value
                   };
+
+                  console.log("datos de login", data);
                 
                   try {
                     const rs = await conn.post('/auth/login', data, {
@@ -57,6 +59,7 @@ export const LoginPage = () => {
                             'Content-Type': 'application/json'
                         }
                     });
+                    localStorage.removeItem('waltersport-token');
                     localStorage.setItem('waltersport-token', rs.data.data?.token)
                      console.log(rs.data.data)
                      
